@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { Session } from "next-auth";
 
 import { useSession } from "next-auth/client"
@@ -66,7 +66,7 @@ export default function Post ({post}:PostPreviewProps) {
     )
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [],
         fallback: 'blocking'
@@ -95,6 +95,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
 
     return {
-        props: {post}
+        props: {
+            post
+        },
+        redirect: 60 * 60, //30 minutos
     }
 }
