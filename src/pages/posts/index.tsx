@@ -13,7 +13,6 @@ type Post = {
     title: string,
     excerpt: string,
     updatedAt: string,
- 
 };
 
 interface PostsProps {
@@ -46,7 +45,6 @@ export default function Posts({posts}:PostsProps) {
 
 export const getStaticProps: GetStaticProps = async() => {
     const primisc = getPrimiscClient()
-
     const response = await primisc.query([
         Prismic.predicates.at('document.type', 'publication')
     ], {
@@ -64,7 +62,6 @@ export const getStaticProps: GetStaticProps = async() => {
                 month: 'long',
                 year: 'numeric'
             })
-
         }
     })
 
