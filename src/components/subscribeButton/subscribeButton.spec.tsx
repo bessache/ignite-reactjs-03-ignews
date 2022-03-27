@@ -51,7 +51,7 @@ describe('SubscribeButton component',()=>{
                expires: 'fake-expires'
            },
            false
-        ])
+        ] as any)
         useRouterMocked.mockReturnValueOnce({
             push: pushMock,
         } as any)
